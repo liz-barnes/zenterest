@@ -41,4 +41,20 @@ const setCurrentUser = (userObj) => {
   return user;
 };
 
-export default { setCurrentUser };
+const getAllUsers = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/users.json`)
+    .then((response) => {
+      const allUsers = response.data;
+      const users = [];
+      if (allUsers) {
+        Object.keys(allUsers).forEach((userId) => {
+          users.push(allUsers[userId]);
+        });
+      }
+      resolve(users);
+    })
+    .catch((error) => reject(error));
+});
+
+export default { setCurrentUser, getAllUsers };

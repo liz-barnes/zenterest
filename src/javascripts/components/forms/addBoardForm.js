@@ -1,4 +1,5 @@
-// import boardData from '../../helpers/data/boardData';
+import boardData from '../../helpers/data/boardData';
+import userData from '../../helpers/data/userData';
 
 const addBoardForm = () => {
   $('#add-board-form').html(
@@ -8,15 +9,27 @@ const addBoardForm = () => {
       <div id="error-message"></div>
       <div class="form-group">
         <label for="name">Name</label>
-        <input type="text" class="form-control" id="name" placeholder="Example: Workouts">
+        <input type="text" class="form-control" id="name" placeholder="Example: Yoga Poses">
       </div>
       <div class="form-group">
         <label for="imageUrl">Image</label>
         <input type="text" class="form-control" id="board-image-url" placeholder="Place Image URL">
       </div>
+      <div class="form-group">
+        <label for="user">User</label>
+          <select class="form-control" id="user">
+            <option value="">Select a User</option>
+          </select>
+      </div>
       <button id="add-board-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Add Board</button>
     </form>`
   );
+
+  userData.getAllUsers().then((response) => {
+    response.forEach((item) => {
+      $('select').append(`<option value="${item.uid}">${item.name}</option>`);
+    });
+  });
 
   $('#add-board-btn').on('click', (e) => {
     e.preventDefault();
@@ -25,6 +38,7 @@ const addBoardForm = () => {
     const data = {
       name: $('#name').val() || false,
       imageUrl: $('#board-image-url').val() || false,
+      userUid: $('#user').val() || false,
     };
 
     console.warn(data);
@@ -38,14 +52,14 @@ const addBoardForm = () => {
     } else {
       $('#error-message').html('');
 
-      // boardData.addBoard(data)
-      //   .then(() => {
-      //     $('#success-message').html(
-      //       `<div class="alert alert-success" role="alert">
-      //       Mooooo! Your cow was added!
-      //     </div>`
-      //     );
-      //   }).catch((error) => console.warn(error));
+      boardData.addBoard(data)
+        .then(() => {
+          $('#success-message').html(
+            `<div class="alert alert-success" role="alert">
+            Right on! Your board was added!
+          </div>`
+          );
+        }).catch((error) => console.warn(error));
 
       setTimeout(() => {
         $('#success-message').html('');
@@ -53,6 +67,7 @@ const addBoardForm = () => {
 
       $('#name').val('');
       $('#board-image-url').val('');
+      $('#user').val('');
     }
   });
 };
