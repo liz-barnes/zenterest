@@ -22,17 +22,16 @@ const addPinForm = () => {
   );
   boardData.getAllBoards().then((response) => {
     response.forEach((item) => {
-      $('select').append(`<option value=${item.firebasekey}>${item.name}</option>`);
+      $('select').append(`<option value=${item.firebaseKey}>${item.name}</option>`);
     });
   });
 
   $('#add-pin-btn').on('click', (e) => {
     e.preventDefault();
-    console.warn('add pin biatch');
 
     const data = {
       pinUrl: $('#pin-image-url').val() || false,
-      firebaseKey: $('#board').val() || false,
+      boardFirebaseKey: $('#board').val() || false,
 
     };
 
