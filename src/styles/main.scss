@@ -3,6 +3,16 @@
 
 body {
   background-color: peru;
-  color: black;
+  color: rgb(0, 0, 0);
   text-align: center;
+}
+
+#auth {
+  margin-top: 150px;
+}
+
+.nav-user-name {
+  list-style: none;
+  color: black;
+  margin-right: 15px;
 }
