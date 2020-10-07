@@ -33,7 +33,6 @@ const addBoardForm = () => {
 
   $('#add-board-btn').on('click', (e) => {
     e.preventDefault();
-    console.warn('add board biatch');
 
     const data = {
       name: $('#name').val() || false,
