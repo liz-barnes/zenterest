@@ -28,4 +28,22 @@ const getBoardPins = (boardId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { addPin, getBoardPins };
+const getSinglePin = (pinFirebaseKey) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/pins/${pinFirebaseKey}.json`)
+    .then((response) => {
+      const thisPin = response.data;
+      resolve(thisPin);
+    }).catch((error) => reject(error));
+});
+
+const updatePin = (firebaseKey, pinObject) => axios.patch(`${baseUrl}/pins/${firebaseKey}.json`, pinObject);
+
+const removePin = (firebaseKey) => axios.delete(`${baseUrl}/pins/${firebaseKey}.json`);
+
+export default {
+  addPin,
+  getBoardPins,
+  removePin,
+  updatePin,
+  getSinglePin
+};

@@ -2,7 +2,8 @@ const buildPinCard = (pinObject) => {
   const domString = `<div class="pin-container">
                       <div class="pin-card" id="${pinObject.firebaseKey}" style="width: 18rem; background-image: url(${pinObject.pinUrl});">
                         <div class="pin-btn-container d-flex justify-content-center align-items-end">
-                          <button class="btn btn-danger" id="delete-pin-btn">Delete Pin</button>
+                          <button type="button" class="btn btn-info" id="edit-pin">edit</button>
+                          <button class="btn btn-danger delete-pin-btn" id="${pinObject.firebaseKey}">Delete Pin</button>
                         </div>
                       </div>
                     </div>`;
