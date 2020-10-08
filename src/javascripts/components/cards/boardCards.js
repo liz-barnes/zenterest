@@ -3,7 +3,7 @@
 const buildBoardCard = (boardObject) => {
   const domString = `<div class="board-container">
                       <div class="project-card" id="${boardObject.firebaseKey}" style="width: 18rem; background-image: url(${boardObject.imageUrl});">
-                        <div class="board-btn-container d-flex justify-content-center align-items-end">
+                        <div class="board-btn-container d-flex justify-content-center align-items-end" style="height: 95%;">
                           <button class="btn btn-danger" id="delete-board-btn">Delete Board</button>
                         </div>
                       </div>
