@@ -11,4 +11,21 @@ const addPin = (data) => axios
   })
   .catch((error) => console.warn(error));
 
-export default { addPin };
+const getBoardPins = (boardId) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/pins.json?orderBy="boardFirebaseKey"&equalTo="${boardId}"`)
+    .then((response) => {
+      const pins = response.data;
+
+      const boardPins = [];
+      if (pins) {
+        Object.keys(pins).forEach((pinId) => {
+          boardPins.push(pins[pinId]);
+        });
+      }
+      resolve(boardPins);
+    })
+    .catch((error) => reject(error));
+});
+
+export default { addPin, getBoardPins };
