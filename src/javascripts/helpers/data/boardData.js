@@ -19,6 +19,23 @@ const getAllBoards = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getUserBoards = (userUid) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/projects.json?orderBy="userUid"&equalTo="${userUid}"`)
+    .then((response) => {
+      const boards = response.data;
+
+      const boardsArray = [];
+      if (boards) {
+        Object.keys(boards).forEach((boardId) => {
+          boardsArray.push(boards[boardId]);
+        });
+      }
+      resolve(boardsArray);
+    })
+    .catch((error) => reject(error));
+});
+
 const addBoard = (data) => axios
   .post(`${baseUrl}/projects.json`, data)
   .then((response) => {
@@ -27,4 +44,4 @@ const addBoard = (data) => axios
   })
   .catch((error) => console.warn(error));
 
-export default { addBoard, getAllBoards };
+export default { addBoard, getAllBoards, getUserBoards };
