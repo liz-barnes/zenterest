@@ -16,3 +16,36 @@ body {
   color: black;
   margin-right: 15px;
 }
+
+#user-boards-container {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.board-container {
+  width: 25%;
+  margin: 25px;
+}
+
+.board-id {
+  text-align: center;
+  margin: auto;
+}
+
+.project-card, .pin-card{
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  width: 350px;
+}
+
+.button-container-pins {
+  vertical-align: baseline;
+}
+
+.form {
+  width: 45%;
+  margin: auto;
+  margin-top: 100px;
+}
