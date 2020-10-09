@@ -20,8 +20,10 @@ const editPinForm = (pinObject) => {
     `);
 
   boardData.getAllBoards().then((response) => {
-    response.forEach((item) => {
-      $('select').append(`<option value=${item.firebaseKey}>${item.name}</option>`);
+    response.forEach((board) => {
+      console.warn('board response', response);
+      // $('select').append(`<option value="${board.firebaseKey}" ${pinObject.boardFirebaseKey === board.firebaseKey ? "selected ='selected'" : ''}>${board.name}</option>`);
+      $('select').append(`<option value=${board.firebaseKey}>${board.name}</option>`);
     });
   });
 
@@ -43,14 +45,14 @@ const editPinForm = (pinObject) => {
     } else {
       $('#error-message').html('');
 
-      pinData.updatePin(pinObject, data)
+      pinData.updatePin(pinObject.firebaseKey, data)
         .then(() => {
           $('#success-message').html(
             `<div class="alert alert-success" role="alert">
             Right on! Your pin was updated!
           </div>`
           );
-        }).catch((error) => console.warn(error));
+        }).catch((error) => console.warn('pin object', pinObject.firebaseKey, error));
 
       setTimeout(() => {
         $('#success-message').html('');
