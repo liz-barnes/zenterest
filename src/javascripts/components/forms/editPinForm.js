@@ -50,7 +50,7 @@ const editPinForm = (pinObject, userUid) => {
             Right on! Your pin was updated!
           </div>`
           );
-        }).catch((error) => console.warn('pin object', pinObject.firebaseKey, error));
+        }).catch((error) => console.warn(error));
 
       setTimeout(() => {
         $('#success-message').html('');
