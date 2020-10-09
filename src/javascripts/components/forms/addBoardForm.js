@@ -40,8 +40,6 @@ const addBoardForm = () => {
       userUid: $('#user').val() || false,
     };
 
-    console.warn(data);
-
     if (Object.values(data).includes(false)) {
       $('#error-message').html(
         `<div class="alert alert-danger" role="alert">

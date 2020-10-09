@@ -6,7 +6,6 @@ import userBoardsView from '../../components/views/userBoards';
 import viewHelper from './viewHelpers';
 
 import auth from '../../components/auth/auth';
-// import userBoards from '../../components/views/userBoards';
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((user) => {

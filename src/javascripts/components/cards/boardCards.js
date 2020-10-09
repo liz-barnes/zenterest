@@ -11,8 +11,6 @@ const buildBoardCard = (boardObject) => {
                     </div>`;
   $('body').on('click', '.delete-board-btn', (e) => {
     e.stopImmediatePropagation();
-    console.warn('board btn clicked', e);
-    // $(`.project-card#${e.currentTarget.id}`).remove();
     boardData.deleteBoardAndPins(e.currentTarget.id);
   });
   return domString;

@@ -33,7 +33,7 @@ const viewListener = (user) => {
 
   $('body').on('click', '#pin-form', (e) => {
     console.warn('add pin clicked', e);
-    addPinView.addPinView();
+    addPinView.addPinView(user);
   });
 
   $('body').on('click', '#user-boards', (e) => {
@@ -60,7 +60,7 @@ const viewListener = (user) => {
     e.stopImmediatePropagation();
     const firebaseKey = e.currentTarget.id;
     console.warn('clicked bitch', firebaseKey);
-    editPinView.editPinView(firebaseKey);
+    editPinView.editPinView(firebaseKey, user);
   });
 };
 
