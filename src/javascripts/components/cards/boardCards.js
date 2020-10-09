@@ -1,19 +1,19 @@
-// import boardData from '../../helpers/data/boardData';
+import boardData from '../../helpers/data/boardData';
 
 const buildBoardCard = (boardObject) => {
-  const domString = `<div class="board-container">
+  const domString = `<div class="board-container" id="${boardObject.firebaseKey}">
                       <div class="project-card" id="${boardObject.firebaseKey}" style="width: 18rem; background-image: url(${boardObject.imageUrl});">
                         <div class="board-btn-container d-flex justify-content-center align-items-end">
-                          <button class="btn btn-danger" id="delete-board-btn">Delete Board</button>
+                          <button class="btn btn-danger delete-board-btn" id="${boardObject.firebaseKey}">Delete Board</button>
                         </div>
                       </div>
                       <h5 class="board-id">${boardObject.name}</h5>
                     </div>`;
-  $('body').on('click', '.project-card .btn #delete-board-btn', (e) => {
+  $('body').on('click', '.delete-board-btn', (e) => {
     e.stopImmediatePropagation();
     console.warn('board btn clicked', e);
     // $(`.project-card#${e.currentTarget.id}`).remove();
-    // boardData.deleteboard(e.currentTarget.id);
+    boardData.deleteBoardAndPins(e.currentTarget.id);
   });
   return domString;
 };

@@ -5,6 +5,7 @@ const singleBoardView = (boardId) => {
   $('#app').html('<div id="single-board-view"></div>');
   pinData.getBoardPins(boardId).then((response) => {
     if (response.length) {
+      console.warn('pin response', response);
       response.forEach((pinObject) => {
         $('#single-board-view').append(card.buildPinCard(pinObject));
       });

@@ -3,6 +3,7 @@ import 'firebase/auth';
 import userData from './userData';
 import homeView from '../../components/views/homeView';
 import userBoardsView from '../../components/views/userBoards';
+import viewHelper from './viewHelpers';
 
 import auth from '../../components/auth/auth';
 // import userBoards from '../../components/views/userBoards';
@@ -12,7 +13,8 @@ const checkLoginStatus = () => {
     if (user) {
       const currentUser = userData.setCurrentUser(user);
       homeView.loginView(currentUser);
-      userBoardsView.userBoardsView('Y874tA9mEYYqTCwaonHP5uIwFFB2');
+      userBoardsView.userBoardsView(user.uid);
+      viewHelper.viewListener(user.uid);
     } else {
       auth.loginButton();
       homeView.logoutView();
