@@ -3,7 +3,7 @@
 
 body {
   background-color: #E7D9C1;
-  color: rgb(0, 0, 0);
+  color: #60627C;
   text-align: center;
 }
 
@@ -11,10 +11,18 @@ body {
   margin-top: 150px;
 }
 
+.nav-text {
+  color: #60627C;
+}
+
 .nav-user-name {
   list-style: none;
   color: black;
   margin-right: 15px;
+}
+
+.no-content-text {
+  color: #60627C;
 }
 
 // #user-boards-container {

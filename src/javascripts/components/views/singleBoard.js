@@ -9,7 +9,7 @@ const singleBoardView = (boardId) => {
         $('#single-board-view').append(card.buildPinCard(pinObject));
       });
     } else {
-      $('#app').html('<h1 class="no-pins">NO PINS</h1>');
+      $('#app').html('<h1 class="no-pins mt-5 no-content-text">There aren’t any pins on this board yet, click ’Add Pin’ to create some!</h1>');
     }
   });
 };
