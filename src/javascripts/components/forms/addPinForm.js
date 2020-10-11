@@ -1,7 +1,7 @@
 import pinData from '../../helpers/data/pinData';
 import boardData from '../../helpers/data/boardData';
 
-const addPinForm = () => {
+const addPinForm = (userUid) => {
   $('#add-pin-form').html(
     `<h2>Add a Pin</h2>
     <div id="success-message"></div>
@@ -18,9 +18,10 @@ const addPinForm = () => {
           </div>
       <button id="add-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
   );
-  boardData.getAllBoards().then((response) => {
-    response.forEach((item) => {
-      $('select').append(`<option value=${item.firebaseKey}>${item.name}</option>`);
+
+  boardData.getUserBoards(userUid).then((response) => {
+    response.forEach((board) => {
+      $('select').append(`<option value=${board.firebaseKey}>${board.name}</option>`);
     });
   });
 
@@ -32,8 +33,6 @@ const addPinForm = () => {
       boardFirebaseKey: $('#board').val() || false,
 
     };
-
-    console.warn(data);
 
     if (Object.values(data).includes(false)) {
       $('#error-message').html(

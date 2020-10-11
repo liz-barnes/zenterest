@@ -9,7 +9,6 @@ const buildPinCard = (pinObject) => {
                     </div>`;
   $('body').on('click', '.delete-pin-btn', (e) => {
     e.stopImmediatePropagation();
-    console.warn('pin btn clicked', e);
   });
   return domString;
 };

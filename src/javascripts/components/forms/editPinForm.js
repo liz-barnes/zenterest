@@ -1,7 +1,7 @@
 import boardData from '../../helpers/data/boardData';
 import pinData from '../../helpers/data/pinData';
 
-const editPinForm = (pinObject) => {
+const editPinForm = (pinObject, userUid) => {
   $('#edit-pin-form').html(`
         <div class="form" id="edit-pin-form-container">
             <h2>Add this Pin to a Board</h2>
@@ -19,10 +19,8 @@ const editPinForm = (pinObject) => {
         </div>
     `);
 
-  boardData.getAllBoards().then((response) => {
+  boardData.getUserBoards(userUid).then((response) => {
     response.forEach((board) => {
-      console.warn('board response', response);
-      // $('select').append(`<option value="${board.firebaseKey}" ${pinObject.boardFirebaseKey === board.firebaseKey ? "selected ='selected'" : ''}>${board.name}</option>`);
       $('select').append(`<option value=${board.firebaseKey}>${board.name}</option>`);
     });
   });
@@ -52,7 +50,7 @@ const editPinForm = (pinObject) => {
             Right on! Your pin was updated!
           </div>`
           );
-        }).catch((error) => console.warn('pin object', pinObject.firebaseKey, error));
+        }).catch((error) => console.warn(error));
 
       setTimeout(() => {
         $('#success-message').html('');

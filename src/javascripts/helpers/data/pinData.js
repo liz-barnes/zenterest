@@ -33,7 +33,6 @@ const getSinglePin = (pinFirebaseKey) => new Promise((resolve, reject) => {
     .then((response) => {
       const thisPin = response.data;
       resolve(thisPin);
-      console.warn('this pin', thisPin);
     }).catch((error) => reject(error));
 });
 
