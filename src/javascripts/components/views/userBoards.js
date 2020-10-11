@@ -17,7 +17,7 @@ import card from '../cards/boardCards';
 // };
 
 const userBoardsView = (user) => {
-  $('#app').html('<div id="user-boards-container"></div>');
+  $('#app').html('<div id="user-boards-container" class="card-container-page"></div>');
   boardData.getUserBoards(user).then((response) => {
     if (response.length) {
       response.forEach((boardObject) => {

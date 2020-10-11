@@ -1,9 +1,9 @@
 const buildPinCard = (pinObject) => {
-  const domString = `<div class="pin-container">
-                      <div class="pin-card" id="${pinObject.firebaseKey}" style="width: 18rem; background-image: url(${pinObject.pinUrl});">
-                        <div class="pin-btn-container d-flex justify-content-center align-items-end">
-                          <button type="button" class="btn btn-info edit-pin" id="${pinObject.firebaseKey}">edit</button>
-                          <button class="btn btn-danger delete-pin-btn" id="${pinObject.firebaseKey}">Delete Pin</button>
+  const domString = `<div class="pin-container card-container">
+                      <div class="pin-card card" id="${pinObject.firebaseKey}" style="background-image: url(${pinObject.pinUrl});">
+                        <div class="pin-btn-container">
+                          <button type="button" class="btn btn-info edit-pin edit-btn" id="${pinObject.firebaseKey}">edit</button>
+                          <button class="btn btn-danger delete-pin-btn delete-btn" id="${pinObject.firebaseKey}">Delete Pin</button>
                         </div>
                       </div>
                     </div>`;

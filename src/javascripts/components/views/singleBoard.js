@@ -2,10 +2,9 @@ import pinData from '../../helpers/data/pinData';
 import card from '../cards/pinCards';
 
 const singleBoardView = (boardId) => {
-  $('#app').html('<div id="single-board-view"></div>');
+  $('#app').html('<div id="single-board-view" class="card-container-page"></div>');
   pinData.getBoardPins(boardId).then((response) => {
     if (response.length) {
-      console.warn('pin response', response);
       response.forEach((pinObject) => {
         $('#single-board-view').append(card.buildPinCard(pinObject));
       });
