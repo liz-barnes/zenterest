@@ -1,11 +1,11 @@
 .delete-btn {
-    background-color: $accent-color-1;
-    border: $accent-color-1;
+    background-color: $accent-color-2;
+    border: $accent-color-2;
   }
   
   .delete-btn:hover {
-    background-color: $accent-color-1-hover;
-    border: $accent-color-1-hover;
+    background-color: $accent-color-2-hover;
+    border: $accent-color-2-hover;
   }
   
   .edit-btn {
@@ -27,3 +27,7 @@
     background-color: $accent-color-2-hover;
     border: $accent-color-2-hover;
   }
+
+.card-btn-container {
+  margin-bottom: 5px;
+}
