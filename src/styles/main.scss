@@ -61,9 +61,22 @@ body {
   margin: 25px;
 }
 
-.board-id {
-  margin: auto;
+.card {
+  display: flex;
+  height: 350px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
 }
+
+.card-btn-container {
+  // align-self: flex-end;
+  // justify-self: flex-end;
+}
+
+// .board-id {
+//   margin: auto;
+// }
 
 // .card-id {
 //   width: 150px;
@@ -71,13 +84,6 @@ body {
 //   margin-left: 25px;
 //   margin-top: 5px;
 // }
-
-.card {
-  height: 350px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-}
 
 .delete-btn {
   background-color: #60627C;
