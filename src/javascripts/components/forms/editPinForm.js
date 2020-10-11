@@ -14,7 +14,7 @@ const editPinForm = (pinObject) => {
                         <option value="">Select a Board</option>
                     </select>
                 </div>
-                <button id="update-pin-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Update Pin</button>
+                <button id="update-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Update Pin</button>
             </div>
         </div>
     `);
