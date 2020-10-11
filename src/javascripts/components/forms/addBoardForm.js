@@ -7,22 +7,21 @@ const addBoardForm = () => {
     <div id="success-message"></div>
     <form>
       <div id="error-message"></div>
-      <div class="form-group">
+      <div class="form-group row">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="Example: Yoga Poses">
       </div>
-      <div class="form-group">
+      <div class="form-group row">
         <label for="imageUrl">Image</label>
         <input type="text" class="form-control" id="board-image-url" placeholder="Place Image URL">
       </div>
-      <div class="form-group">
+      <div class="form-group row">
         <label for="user">User</label>
           <select class="form-control" id="user">
             <option value="">Select a User</option>
           </select>
       </div>
-      <button id="add-board-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Add Board</button>
-    </form>`
+      <button id="add-board-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
   );
 
   userData.getAllUsers().then((response) => {

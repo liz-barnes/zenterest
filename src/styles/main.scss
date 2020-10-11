@@ -1,51 +1,26 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+@import './globals';
+@import './components';
+
 body {
-  background-color: peru;
-  color: rgb(0, 0, 0);
+  background-color: $primary-color;
+  color: $text-color;
   text-align: center;
+}
+
+.nav-user-name {
+  list-style: none;
+  color: $text-color;
+  margin-right: 15px;
+}
+
+.nav-text, .no-content-text {
+  color: $text-color;
 }
 
 #auth {
   margin-top: 150px;
 }
 
-.nav-user-name {
-  list-style: none;
-  color: black;
-  margin-right: 15px;
-}
-
-#user-boards-container {
-  display: flex;
-  flex-flow: row wrap;
-}
-
-.board-container {
-  width: 25%;
-  margin: 25px;
-}
-
-.board-id {
-  text-align: center;
-  margin: auto;
-}
-
-.project-card, .pin-card{
-  height: 350px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  width: 350px;
-}
-
-.button-container-pins {
-  vertical-align: baseline;
-}
-
-.form {
-  width: 45%;
-  margin: auto;
-  margin-top: 100px;
-}

@@ -5,20 +5,18 @@ const addPinForm = (userUid) => {
   $('#add-pin-form').html(
     `<h2>Add a Pin</h2>
     <div id="success-message"></div>
-    <form>
       <div id="error-message"></div>
-      <div class="form-group">
+      <div class="form-group row">
         <label for="pinImageUrl">Image</label>
         <input type="text" class="form-control" id="pin-image-url" placeholder="Place Image URL">
       </div>
-      <div class="form-group">
+      <div class="form-group row">
             <label for="board">Board</label>
               <select class="form-control" id="board">
                 <option value="">Select a Board</option>
               </select>
           </div>
-      <button id="add-pin-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Add Pin</button>
-    </form>`
+      <button id="add-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
   );
 
   boardData.getUserBoards(userUid).then((response) => {
