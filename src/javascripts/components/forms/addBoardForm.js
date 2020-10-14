@@ -1,5 +1,7 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
 import boardData from '../../helpers/data/boardData';
-import userData from '../../helpers/data/userData';
+// import userData from '../../helpers/data/userData';
 
 const addBoardForm = () => {
   $('#add-board-form').html(
@@ -15,20 +17,9 @@ const addBoardForm = () => {
         <label for="imageUrl">Image</label>
         <input type="text" class="form-control" id="board-image-url" placeholder="Place Image URL">
       </div>
-      <div class="form-group row">
-        <label for="user">User</label>
-          <select class="form-control" id="user">
-            <option value="">Select a User</option>
-          </select>
-      </div>
       <button id="add-board-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
   );
-
-  userData.getAllUsers().then((response) => {
-    response.forEach((item) => {
-      $('select').append(`<option value="${item.uid}">${item.name}</option>`);
-    });
-  });
+  const user = firebase.auth().currentUser;
 
   $('#add-board-btn').on('click', (e) => {
     e.preventDefault();
@@ -36,8 +27,9 @@ const addBoardForm = () => {
     const data = {
       name: $('#name').val() || false,
       imageUrl: $('#board-image-url').val() || false,
-      userUid: $('#user').val() || false,
+      userUid: user.uid || false,
     };
+    console.warn('user data', data);
 
     if (Object.values(data).includes(false)) {
       $('#error-message').html(

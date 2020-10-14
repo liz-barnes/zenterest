@@ -8,10 +8,8 @@ const signMeIn = () => {
 
 const loginButton = () => {
   const domString = `<div id="auth">
-                      <h4>Welcome to zenterest</h4>
-                      <button id="google-auth" class="btn btn-primary btn-lg">
-                        <i class="fab fa-google"></i></i>oogle Login
-                      </button>
+                      <h2>Welcome to zenterest</h2>
+                      <button id="google-auth" class="btn btn-primary btn-lg">Login</button>
                     </div>`;
 
   $('#app').html(domString);
