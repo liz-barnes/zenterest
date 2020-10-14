@@ -21,12 +21,6 @@ const addBoardForm = () => {
   );
   const user = firebase.auth().currentUser;
 
-  // userData.getAllUsers().then((response) => {
-  //   response.forEach((item) => {
-  //     $('select').append(`<option value="${item.uid}">${item.name}</option>`);
-  //   });
-  // });
-
   $('#add-board-btn').on('click', (e) => {
     e.preventDefault();
 
