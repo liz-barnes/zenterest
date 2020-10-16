@@ -16,7 +16,7 @@ const addPinForm = (userUid) => {
                 <option value="">Select a Board</option>
               </select>
           </div>
-      <button id="add-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
+      <button id="add-pin-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
   );
 
   boardData.getUserBoards(userUid).then((response) => {

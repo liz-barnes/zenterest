@@ -17,7 +17,7 @@ const addBoardForm = () => {
         <label for="imageUrl">Image</label>
         <input type="text" class="form-control" id="board-image-url" placeholder="Place Image URL">
       </div>
-      <button id="add-board-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
+      <button id="add-board-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
   );
   const user = firebase.auth().currentUser;
 

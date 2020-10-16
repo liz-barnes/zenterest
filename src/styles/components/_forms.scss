@@ -5,7 +5,13 @@
   }
 
 .alert-danger {
-  background-color: #60627C;
-  border: #60627C;
-  color: white;
+  background-color: $accent-color-1;
+  border: $accent-color-1;
+  color: $text-color-secondary;
+}
+
+.alert-success {
+  background-color: $accent-color-2;
+  border: $accent-color-2;
+  color: $text-color-secondary;
 }
