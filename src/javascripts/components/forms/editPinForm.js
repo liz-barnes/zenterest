@@ -4,11 +4,11 @@ import pinData from '../../helpers/data/pinData';
 const editPinForm = (pinObject, userUid) => {
   $('#edit-pin-form').html(`
         <div class="form" id="edit-pin-form-container">
-            <h2>Add this Pin to a Board</h2>
+            <h2>Edit Pin</h2>
             <div id="success-message"></div>
             <div>
                 <div id="error-message"></div>
-                <div class="form-group">
+                <div class="form-group row">
                     <label for="board">Board</label>
                     <select class="form-control" id="board">
                         <option value="">Select a Board</option>
