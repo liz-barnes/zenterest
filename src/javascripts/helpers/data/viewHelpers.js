@@ -21,7 +21,7 @@ const viewListener = (user) => {
   });
 
   $('body').on('click', '#user-boards', () => {
-    $('#user-boards-container').html('');
+    $('#app').html('');
     userBoards.userBoardsView(user);
     $('li#user-boards').addClass('active');
     $('li#pin-form').removeClass('active');
