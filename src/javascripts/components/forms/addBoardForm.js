@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import boardData from '../../helpers/data/boardData';
-import userBoards from '../views/userBoards';
+// import userBoards from '../views/userBoards';
 
 const addBoardForm = () => {
   $('#add-board-form').html(
@@ -49,12 +49,12 @@ const addBoardForm = () => {
           setTimeout(() => {
             $('#success-message').html('');
           }, 3000);
-        }).then(() => {
-          setTimeout(() => {
-            userBoards.userBoardsView(user.uid);
-            $('li#user-boards').addClass('active');
-            $('li#board-form').removeClass('active');
-          }, 3000);
+        // }).then(() => {
+        //   setTimeout(() => {
+        //     userBoards.userBoardsView(user.uid);
+        //     $('li#user-boards').addClass('active');
+        //     $('li#board-form').removeClass('active');
+        //   }, 3000);
         }).catch((error) => console.warn(error));
 
       $('#name').val('');

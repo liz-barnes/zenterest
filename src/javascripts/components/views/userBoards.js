@@ -5,6 +5,7 @@ const userBoardsView = (user) => {
   $('#app').html('<div id="user-boards-container" class="card-container-page"></div>');
   boardData.getUserBoards(user).then((response) => {
     if (response.length) {
+      console.warn(response);
       response.forEach((boardObject) => {
         $('#user-boards-container').append(card.buildBoardCard(boardObject));
       });
