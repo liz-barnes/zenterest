@@ -1,5 +1,6 @@
 import boardData from '../../helpers/data/boardData';
 import pinData from '../../helpers/data/pinData';
+import singleBoard from '../views/singleBoard';
 
 const editPinForm = (pinObject, userUid) => {
   $('#edit-pin-form').html(`
@@ -50,11 +51,16 @@ const editPinForm = (pinObject, userUid) => {
             Right on! Your pin was updated!
           </div>`
           );
+          setTimeout(() => {
+            $('#success-message').html('');
+          }, 3000);
+        }).then(() => {
+          setTimeout(() => {
+            singleBoard.singleBoardView(data.boardFirebaseKey);
+            $('li#user-boards').addClass('active');
+            $('li#pin-form').removeClass('active');
+          }, 3000);
         }).catch((error) => console.warn(error));
-
-      setTimeout(() => {
-        $('#success-message').html('');
-      }, 3000);
     }
   });
 };

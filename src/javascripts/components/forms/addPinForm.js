@@ -1,6 +1,5 @@
 import pinData from '../../helpers/data/pinData';
 import boardData from '../../helpers/data/boardData';
-import singleBoard from '../views/singleBoard';
 
 const addPinForm = (userUid) => {
   $('#add-pin-form').html(
@@ -54,12 +53,6 @@ const addPinForm = (userUid) => {
           );
           setTimeout(() => {
             $('#success-message').html('');
-          }, 3000);
-        }).then(() => {
-          setTimeout(() => {
-            singleBoard.singleBoardView(data.boardFirebaseKey);
-            $('li#user-boards').addClass('active');
-            $('li#pin-form').removeClass('active');
           }, 3000);
         }).catch((error) => console.warn(error));
 
