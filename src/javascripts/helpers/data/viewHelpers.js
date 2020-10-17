@@ -8,14 +8,23 @@ import editPinView from '../../components/views/editPin';
 const viewListener = (user) => {
   $('body').on('click', '#board-form', () => {
     addBoardView.addBoardView();
+    $('li#user-boards').removeClass('active');
+    $('li#pin-form').removeClass('active');
+    $('li#board-form').addClass('active');
   });
 
   $('body').on('click', '#pin-form', () => {
     addPinView.addPinView(user);
+    $('li#user-boards').removeClass('active');
+    $('li#pin-form').addClass('active');
+    $('li#board-form').removeClass('active');
   });
 
   $('body').on('click', '#user-boards', () => {
     userBoards.userBoardsView(user);
+    $('li#user-boards').addClass('active');
+    $('li#pin-form').removeClass('active');
+    $('li#board-form').removeClass('active');
   });
 
   $('body').on('click', '.project-card', (e) => {
