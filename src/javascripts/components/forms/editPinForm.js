@@ -38,7 +38,7 @@ const editPinForm = (pinObject, userUid) => {
     if (Object.values(data).includes(false)) {
       $('#error-message').html(
         `<div class="alert alert-danger" role="alert">
-        Please complete all fields
+        Please select a board!
       </div>`
       );
     } else {
