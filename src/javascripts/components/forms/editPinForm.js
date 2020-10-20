@@ -1,6 +1,5 @@
 import boardData from '../../helpers/data/boardData';
 import pinData from '../../helpers/data/pinData';
-import singleBoard from '../views/singleBoard';
 
 const editPinForm = (pinObject, userUid) => {
   $('#edit-pin-form').html(`
@@ -27,6 +26,7 @@ const editPinForm = (pinObject, userUid) => {
   });
 
   $('#update-pin-btn').on('click', (e) => {
+    e.stopImmediatePropagation();
     e.preventDefault();
     console.warn('edit pin biatch');
 
@@ -53,12 +53,6 @@ const editPinForm = (pinObject, userUid) => {
           );
           setTimeout(() => {
             $('#success-message').html('');
-          }, 3000);
-        }).then(() => {
-          setTimeout(() => {
-            singleBoard.singleBoardView(data.boardFirebaseKey);
-            $('li#user-boards').addClass('active');
-            $('li#pin-form').removeClass('active');
           }, 3000);
         }).catch((error) => console.warn(error));
     }
