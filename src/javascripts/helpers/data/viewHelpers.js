@@ -50,6 +50,11 @@ const viewListener = (user) => {
     const firebaseKey = e.currentTarget.id;
     editPinView.editPinView(firebaseKey, user);
   });
+
+  $('body').on('click', '.add-pin-to-board-btn', (e) => {
+    e.stopImmediatePropagation();
+    console.warn('clicked');
+  });
 };
 
 export default { viewListener };
