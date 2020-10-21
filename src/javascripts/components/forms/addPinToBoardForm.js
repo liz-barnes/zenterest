@@ -1,4 +1,4 @@
-const addPinToBoardForm = () => {
+const addPinToBoardForm = (boardId) => {
   const domString = `
         <div class="pin-form-btn-container">
           <button class="btn add-pin-to-board-btn mt-3" type="button" data-toggle="collapse" data-target="#collapseForm" aria-expanded="false" aria-controls="collapseForm">
@@ -20,6 +20,7 @@ const addPinToBoardForm = () => {
 
   $('body').on('click', '#add-pin-to-board-form-btn', () => {
     console.warn('clicked');
+    console.warn('pin board id', boardId);
   });
 
   return domString;

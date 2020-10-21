@@ -8,7 +8,7 @@ const singleBoardView = (boardId) => {
         <div class="add-pin-form-btn"></div>
         <div id="add-pin-to-board-form"></div>
         <div id="single-board-view" class="card-container-page"></div>`);
-  $('.add-pin-form-btn').html(pinToBoard.addPinToBoardForm());
+  $('.add-pin-form-btn').html(pinToBoard.addPinToBoardForm(boardId));
   pinData.getBoardPins(boardId).then((response) => {
     if (response.length) {
       response.forEach((pinObject) => {
