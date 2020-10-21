@@ -46,16 +46,11 @@ const addBoardForm = () => {
             Right on! Your board was added!
           </div>`
           );
-          setTimeout(() => {
-            $('#success-message').html('');
-          }, 3000);
-        // }).then(() => {
-        //   setTimeout(() => {
-        //     userBoards.userBoardsView(user.uid);
-        //     $('li#user-boards').addClass('active');
-        //     $('li#board-form').removeClass('active');
-        //   }, 3000);
         }).catch((error) => console.warn(error));
+
+      setTimeout(() => {
+        $('#success-message').html('');
+      }, 3000);
 
       $('#name').val('');
       $('#board-image-url').val('');
