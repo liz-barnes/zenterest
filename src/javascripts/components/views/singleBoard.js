@@ -1,13 +1,14 @@
 import pinData from '../../helpers/data/pinData';
 import card from '../cards/pinCards';
-import pinBtn from './addPinToBoard';
+// import pinBtn from './addPinToBoard';
+import pinToBoard from '../forms/addPinToBoardForm';
 
 const singleBoardView = (boardId) => {
   $('#app').html(`
         <div class="add-pin-form-btn"></div>
         <div id="add-pin-to-board-form"></div>
         <div id="single-board-view" class="card-container-page"></div>`);
-  $('.add-pin-form-btn').html(pinBtn.addPinToBoard());
+  $('.add-pin-form-btn').html(pinToBoard.addPinToBoardForm());
   pinData.getBoardPins(boardId).then((response) => {
     if (response.length) {
       response.forEach((pinObject) => {

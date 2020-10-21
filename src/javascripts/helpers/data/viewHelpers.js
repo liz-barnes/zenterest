@@ -4,7 +4,6 @@ import userBoards from '../../components/views/userBoards';
 import singleBoardView from '../../components/views/singleBoard';
 import pinData from './pinData';
 import editPinView from '../../components/views/editPin';
-import pinToBoard from '../../components/forms/addPinToBoardForm';
 
 const viewListener = (user) => {
   $('body').on('click', '#board-form', (e) => {
@@ -52,11 +51,10 @@ const viewListener = (user) => {
     editPinView.editPinView(firebaseKey, user);
   });
 
-  $('body').on('click', '.add-pin-to-board-btn', (e) => {
-    e.stopImmediatePropagation();
-    console.warn('clicked');
-    pinToBoard.addPinToBoardForm();
-  });
+  // $('body').on('click', '.add-pin-to-board-btn', (e) => {
+  //   e.stopImmediatePropagation();
+  //   console.warn('clicked');
+  // });
 };
 
 export default { viewListener };
