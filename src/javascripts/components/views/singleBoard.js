@@ -5,6 +5,7 @@ import pinBtn from './addPinToBoard';
 const singleBoardView = (boardId) => {
   $('#app').html(`
         <div class="add-pin-form-btn"></div>
+        <div id="add-pin-to-board-form"></div>
         <div id="single-board-view" class="card-container-page"></div>`);
   $('.add-pin-form-btn').html(pinBtn.addPinToBoard());
   pinData.getBoardPins(boardId).then((response) => {
