@@ -16,7 +16,7 @@ const addPinForm = (userUid) => {
                 <option value="">Select a Board</option>
               </select>
           </div>
-      <button id="add-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
+      <button id="add-pin-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Pin</button>`
   );
 
   boardData.getUserBoards(userUid).then((response) => {
@@ -45,16 +45,16 @@ const addPinForm = (userUid) => {
 
       pinData.addPin(data)
         .then(() => {
+          console.warn(data);
           $('#success-message').html(
             `<div class="alert alert-success" role="alert">
             Right on! Your pin was added!
           </div>`
           );
+          setTimeout(() => {
+            $('#success-message').html('');
+          }, 3000);
         }).catch((error) => console.warn(error));
-
-      setTimeout(() => {
-        $('#success-message').html('');
-      }, 3000);
 
       $('#pin-image-url').val('');
       $('#board').val('');

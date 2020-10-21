@@ -24,6 +24,8 @@ const getUserBoards = (userUid) => new Promise((resolve, reject) => {
   axios
     .get(`${baseUrl}/projects.json?orderBy="userUid"&equalTo="${userUid}"`)
     .then((response) => {
+      console.warn('user id', userUid);
+      console.warn('boards response', response);
       const boards = response.data;
 
       const boardsArray = [];
@@ -32,6 +34,7 @@ const getUserBoards = (userUid) => new Promise((resolve, reject) => {
           boardsArray.push(boards[boardId]);
         });
       }
+      console.warn('boards array', boardsArray);
       resolve(boardsArray);
     })
     .catch((error) => reject(error));

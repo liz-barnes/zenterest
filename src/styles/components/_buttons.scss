@@ -21,11 +21,13 @@
   .form-btn, #navbar-logout-button, #google-auth {
     background-color: $accent-color-2;
     border: $accent-color-2;
+    color: $text-color-secondary;
   }
   
   .form-btn:hover, #navbar-logout-button:hover, #google-auth:hover  {
     background-color: $accent-color-2-hover;
     border: $accent-color-2-hover;
+    color: $text-color-secondary;
   }
 
 .card-btn-container {

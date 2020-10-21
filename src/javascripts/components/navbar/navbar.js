@@ -21,13 +21,13 @@ const buildNavbar = (currentUser) => {
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active nav-text">
+        <li class="nav-item active nav-text" id="user-boards">
           <a id="user-boards" class="nav-link" href="#">Boards<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="board-form">
           <a id="board-form" class="nav-link nav-text" href="#">Add Board<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item ">
+        <li class="nav-item" id="pin-form">
           <a id="pin-form" class="nav-link nav-text" href="#">Add Pin<span class="sr-only">(current)</span></a>
         </li>
       </ul>

@@ -1,7 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import boardData from '../../helpers/data/boardData';
-// import userData from '../../helpers/data/userData';
+// import userBoards from '../views/userBoards';
 
 const addBoardForm = () => {
   $('#add-board-form').html(
@@ -17,7 +17,7 @@ const addBoardForm = () => {
         <label for="imageUrl">Image</label>
         <input type="text" class="form-control" id="board-image-url" placeholder="Place Image URL">
       </div>
-      <button id="add-board-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
+      <button id="add-board-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Board</button>`
   );
   const user = firebase.auth().currentUser;
 
@@ -29,7 +29,6 @@ const addBoardForm = () => {
       imageUrl: $('#board-image-url').val() || false,
       userUid: user.uid || false,
     };
-    console.warn('user data', data);
 
     if (Object.values(data).includes(false)) {
       $('#error-message').html(
@@ -47,11 +46,16 @@ const addBoardForm = () => {
             Right on! Your board was added!
           </div>`
           );
+          setTimeout(() => {
+            $('#success-message').html('');
+          }, 3000);
+        // }).then(() => {
+        //   setTimeout(() => {
+        //     userBoards.userBoardsView(user.uid);
+        //     $('li#user-boards').addClass('active');
+        //     $('li#board-form').removeClass('active');
+        //   }, 3000);
         }).catch((error) => console.warn(error));
-
-      setTimeout(() => {
-        $('#success-message').html('');
-      }, 3000);
 
       $('#name').val('');
       $('#board-image-url').val('');

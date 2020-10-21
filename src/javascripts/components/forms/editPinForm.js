@@ -4,17 +4,17 @@ import pinData from '../../helpers/data/pinData';
 const editPinForm = (pinObject, userUid) => {
   $('#edit-pin-form').html(`
         <div class="form" id="edit-pin-form-container">
-            <h2>Add this Pin to a Board</h2>
+            <h2>Edit Pin</h2>
             <div id="success-message"></div>
             <div>
                 <div id="error-message"></div>
-                <div class="form-group">
+                <div class="form-group row">
                     <label for="board">Board</label>
                     <select class="form-control" id="board">
                         <option value="">Select a Board</option>
                     </select>
                 </div>
-                <button id="update-pin-btn" type="submit" class="btn btn-info form-btn"><i class="fas fa-plus-circle"></i> Update Pin</button>
+                <button id="update-pin-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Update Pin</button>
             </div>
         </div>
     `);
@@ -26,6 +26,7 @@ const editPinForm = (pinObject, userUid) => {
   });
 
   $('#update-pin-btn').on('click', (e) => {
+    e.stopImmediatePropagation();
     e.preventDefault();
     console.warn('edit pin biatch');
 
@@ -37,7 +38,7 @@ const editPinForm = (pinObject, userUid) => {
     if (Object.values(data).includes(false)) {
       $('#error-message').html(
         `<div class="alert alert-danger" role="alert">
-        Please complete all fields
+        Please select a board!
       </div>`
       );
     } else {
@@ -50,11 +51,10 @@ const editPinForm = (pinObject, userUid) => {
             Right on! Your pin was updated!
           </div>`
           );
+          setTimeout(() => {
+            $('#success-message').html('');
+          }, 3000);
         }).catch((error) => console.warn(error));
-
-      setTimeout(() => {
-        $('#success-message').html('');
-      }, 3000);
     }
   });
 };
