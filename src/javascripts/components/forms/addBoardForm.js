@@ -1,7 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import boardData from '../../helpers/data/boardData';
-// import userBoards from '../views/userBoards';
 
 const addBoardForm = () => {
   $('#add-board-form').html(
