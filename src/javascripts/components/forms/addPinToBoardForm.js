@@ -14,9 +14,14 @@ const addPinToBoardForm = () => {
               <label for="pinImageUrl">Image</label>
               <input type="text" class="form-control" id="pin-image-url" placeholder="Place Image URL">
             </div>
-            <button id="add-pin-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Pin to Board</button>
+            <button id="add-pin-to-board-form-btn" type="submit" class="btn form-btn"><i class="fas fa-plus-circle"></i> Add Pin to Board</button>
           </div>
         </div>`;
+
+  $('body').on('click', '#add-pin-to-board-form-btn', () => {
+    console.warn('clicked');
+  });
+
   return domString;
 };
 
