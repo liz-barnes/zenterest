@@ -1,3 +1,5 @@
+import pinData from '../../helpers/data/pinData';
+
 const addPinToBoardForm = (boardId) => {
   const domString = `
         <div class="pin-form-btn-container">
@@ -21,6 +23,35 @@ const addPinToBoardForm = (boardId) => {
   $('body').on('click', '#add-pin-to-board-form-btn', () => {
     console.warn('clicked');
     console.warn('pin board id', boardId);
+    const data = {
+      pinUrl: $('#pin-image-url').val() || false,
+      boardFirebaseKey: boardId,
+    };
+
+    if (Object.values(data).includes(false)) {
+      $('#error-message').html(
+        `<div class="alert alert-danger" role="alert">
+        Please input pin image URL
+      </div>`
+      );
+    } else {
+      $('#error-message').html('');
+
+      pinData.addPin(data)
+        .then(() => {
+          console.warn(data);
+          $('#success-message').html(
+            `<div class="alert alert-success" role="alert">
+            Right on! Your pin was added!
+          </div>`
+          );
+          setTimeout(() => {
+            $('#success-message').html('');
+          }, 3000);
+        }).catch((error) => console.warn(error));
+
+      $('#pin-image-url').val('');
+    }
   });
 
   return domString;
