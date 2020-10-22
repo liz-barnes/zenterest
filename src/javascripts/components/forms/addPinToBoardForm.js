@@ -1,4 +1,6 @@
 import pinData from '../../helpers/data/pinData';
+import card from '../cards/pinCards';
+// import printPins from '../views/singleBoard';
 
 const addPinToBoardForm = (boardId) => {
   const domString = `
@@ -39,7 +41,7 @@ const addPinToBoardForm = (boardId) => {
 
       pinData.addPin(data)
         .then(() => {
-          console.warn(data);
+          console.warn('pin data', data);
           $('#success-message').html(
             `<div class="alert alert-success" role="alert">
             Right on! Your pin was added!
@@ -48,6 +50,10 @@ const addPinToBoardForm = (boardId) => {
           setTimeout(() => {
             $('#success-message').html('');
           }, 3000);
+          $('#single-board-view').append(card.buildPinCard(data));
+          // setTimeout(() => {
+          //   printPins.printBoardPins(boardId);
+          // }, 3000);
         }).catch((error) => console.warn(error));
 
       $('#pin-image-url').val('');
