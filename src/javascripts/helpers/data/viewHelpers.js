@@ -40,7 +40,7 @@ const viewListener = (user) => {
   $('body').on('click', '.delete-pin-btn', (e) => {
     e.stopImmediatePropagation();
     const firebaseKey = e.currentTarget.id;
-    $(`.pin-card#${firebaseKey}`).remove();
+    $(`.pin-container#${firebaseKey}`).remove();
     pinData.removePin(firebaseKey);
   });
 

@@ -50,6 +50,7 @@ const addPinToBoardForm = (boardId) => {
           setTimeout(() => {
             $('#success-message').html('');
           }, 3000);
+          $('.collapse-pin-form-container').html('');
           $('#single-board-view').append(card.buildPinCard(data));
           // setTimeout(() => {
           //   printPins.printBoardPins(boardId);
