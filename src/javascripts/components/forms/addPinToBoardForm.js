@@ -22,9 +22,8 @@ const addPinToBoardForm = (boardId) => {
           </div>
         </div>`;
 
-  $('body').on('click', '#add-pin-to-board-form-btn', () => {
-    console.warn('clicked');
-    console.warn('pin board id', boardId);
+  $('body').on('click', '#add-pin-to-board-form-btn', (e) => {
+    e.stopImmediatePropagation();
     const data = {
       pinUrl: $('#pin-image-url').val() || false,
       boardFirebaseKey: boardId,
@@ -38,6 +37,7 @@ const addPinToBoardForm = (boardId) => {
       );
     } else {
       $('#error-message').html('');
+      $('.no-content-text').remove();
 
       pinData.addPin(data)
         .then((response) => {
