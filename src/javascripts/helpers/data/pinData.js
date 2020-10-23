@@ -3,13 +3,32 @@ import apiKeys from '../apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const addPin = (data) => axios
-  .post(`${baseUrl}/pins.json`, data)
-  .then((response) => {
-    const update = { firebaseKey: response.data.name };
-    axios.patch(`${baseUrl}/pins/${response.data.name}.json`, update);
-  })
-  .catch((error) => console.warn(error));
+// const addPin = (data) => axios
+//   .post(`${baseUrl}/pins.json`, data)
+//   .then((response) => {
+//     const update = { firebaseKey: response.data.name };
+//     console.warn('pin update', update);
+//     axios.patch(`${baseUrl}/pins/${response.data.name}.json`, update);
+//   })
+//   .catch((error) => console.warn(error));
+
+const addPin = (data) => new Promise((resolve, reject) => {
+  axios
+    .post(`${baseUrl}/pins.json`, data)
+    .then((response) => {
+      console.warn('post response', response);
+      console.warn('post response data', response.data.name);
+      const update = { firebaseKey: response.data.name };
+      console.warn('pin update', update);
+      axios.patch(`${baseUrl}/pins/${response.data.name}.json`, update)
+        .then((patchResponse) => {
+          console.warn('patch status', patchResponse.status);
+          console.warn('patch response', patchResponse.data);
+          resolve(response.data.name);
+        });
+    })
+    .catch((error) => reject(error));
+});
 
 const getBoardPins = (boardId) => new Promise((resolve, reject) => {
   axios
