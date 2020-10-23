@@ -40,8 +40,9 @@ const addPinToBoardForm = (boardId) => {
       $('#error-message').html('');
 
       pinData.addPin(data)
-        .then(() => {
+        .then((response) => {
           console.warn('pin data', data);
+          console.warn('response', response);
           $('#success-message').html(
             `<div class="alert alert-success" role="alert">
             Right on! Your pin was added!
@@ -50,8 +51,25 @@ const addPinToBoardForm = (boardId) => {
           setTimeout(() => {
             $('#success-message').html('');
           }, 3000);
-          $('.collapse-pin-form-container').html('');
-          $('#single-board-view').append(card.buildPinCard(data));
+          pinData.getBoardPins(boardId).then((pinResponse) => {
+            console.warn('board pins', pinResponse);
+            if (pinResponse.length) {
+              $('#single-board-view').html('');
+              pinResponse.forEach((pinObject) => {
+                $('#single-board-view').append(card.buildPinCard(pinObject));
+              });
+            } else {
+              $('#no-pins-mssg').html('<h1 class="no-pins mt-5 no-content-text">There aren’t any pins on this board yet, click ’Add Pin to Board’ to create some!</h1>');
+            }
+          });
+          // if (response.status === 200) {
+          //   setTimeout(() => {
+          //     $('#single-board-view').append(card.buildPinCard(response.data));
+          //   }, 3000);
+          // } else {
+          //   console.warn('failed, come back later');
+          // }
+          // $('.collapse-pin-form-container').html('');
           // setTimeout(() => {
           //   printPins.printBoardPins(boardId);
           // }, 3000);

@@ -46,7 +46,6 @@ const viewListener = (user) => {
 
   $('body').on('click', '.edit-pin', (e) => {
     e.stopImmediatePropagation();
-    console.warn('clicked');
     const firebaseKey = e.currentTarget.id;
     editPinView.editPinView(firebaseKey, user);
   });

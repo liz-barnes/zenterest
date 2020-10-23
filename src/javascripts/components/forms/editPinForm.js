@@ -28,12 +28,10 @@ const editPinForm = (pinObject, userUid) => {
   $('#update-pin-btn').on('click', (e) => {
     e.stopImmediatePropagation();
     e.preventDefault();
-    console.warn('edit pin biatch');
 
     const data = {
       boardFirebaseKey: $('#board').val() || false,
     };
-    console.warn('data', data);
 
     if (Object.values(data).includes(false)) {
       $('#error-message').html(
