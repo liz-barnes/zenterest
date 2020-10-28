@@ -1,9 +1,32 @@
 @import "~bootstrap/scss/bootstrap";
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 
+@import './globals';
+@import './components';
+
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: $primary-color;
+  color: $text-color;
   text-align: center;
-  margin-top: 100px;
 }
+
+.nav-user-name {
+  list-style: none;
+  color: $text-color;
+  margin-right: 15px;
+}
+
+.nav-text, .no-content-text {
+  color: $text-color;
+}
+
+.no-content-text {
+  width: 75%;
+  margin: auto;
+  margin-top: 25px;
+}
+
+#auth {
+  margin-top: 150px;
+}
+
