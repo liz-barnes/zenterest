@@ -12,7 +12,7 @@ const checkLoginStatus = () => {
     if (user) {
       const currentUser = userData.setCurrentUser(user);
       homeView.loginView(currentUser);
-      userBoardsView.userBoardsView(user.uid);
+      userBoardsView.userBoardsView(user);
       viewHelper.viewListener(user.uid);
     } else {
       auth.loginButton();

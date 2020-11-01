@@ -2,10 +2,17 @@ import boardData from '../../helpers/data/boardData';
 import card from '../cards/boardCards';
 
 const userBoardsView = (user) => {
-  $('#app').html('<div id="user-boards-container" class="card-container-page"></div>');
-  boardData.getUserBoards(user).then((response) => {
+  $('#app').html(`
+    <div id="user-info-banner">
+      <img src="${user.photoURL}" id="user-photo">
+      <h2 id="user-name">${user.displayName}</h2>
+      <p id="numberOfBoards"></p>
+    </div>
+    <div id="user-boards-container" class="card-container-page"></div>
+    `);
+  boardData.getUserBoards(user.uid).then((response) => {
     if (response.length) {
-      // console.warn(response);
+      $('#numberOfBoards').html(`Boards: ${response.length}`);
       response.forEach((boardObject) => {
         $('#user-boards-container').append(card.buildBoardCard(boardObject));
       });
